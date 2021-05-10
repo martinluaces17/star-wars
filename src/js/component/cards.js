@@ -5,7 +5,7 @@ export const Cards = () => {
 	return (
 		<div>
 			<h1 className="text-danger">Character</h1>
-			<div className="card-deck">
+			<div className="card-deck m-2">
 				<div className="card">
 					<img src="http://www.servithermic.cl/images/400X200.gif" className="card-img-top" alt="..." />
 					<div className="card-body">
