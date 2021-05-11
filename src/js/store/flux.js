@@ -12,18 +12,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			personajes: [],
+			planetas: [],
+			favoritos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			// agregarFavoritos: () => {
+			// 	//
+			// 	setStore({ favoritos: newFavoritos });
+			// },
+			// eliminarFavoritos: () => {
+
+			//     setStore({ favoritos: newFavoritos });
+			// },
+
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				fetch("https://www.swapi.tech/api/people/")
+					.then(res => res.json())
+					.then(data => setStore({ personajes: data.results }));
+
+				fetch("https://www.swapi.tech/api/planets/")
+					.then(res => res.json())
+					.then(data => setStore({ planetas: data.results }));
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

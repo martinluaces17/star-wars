@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { Cards } from "../component/cards";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
@@ -10,34 +10,16 @@ export const Demo = () => {
 
 	return (
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
+			<h1 className="text-danger m-2">Character</h1>
+			<div className="row d-flex-row overflow-auto flex-nowrap">
+				{store.personajes.map((item, index) => {
 					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
+						<div key={index} className="col-lg-4 mb-5">
+							<Cards />
+						</div>
 					);
 				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+			</div>
 		</div>
 	);
 };

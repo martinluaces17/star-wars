@@ -22,12 +22,11 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
-					<Cards />
 					<Switch>
-						<Route exact path="/">
+						{/* <Route exact path="/">
 							<Home />
-						</Route>
-						<Route exact path="/demo">
+						</Route> */}
+						<Route exact path="/">
 							<Demo />
 						</Route>
 						<Route exact path="/single/:theid">
