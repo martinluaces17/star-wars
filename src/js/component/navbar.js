@@ -4,17 +4,16 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 	return (
 		<div>
-			<nav className="navbar navbar-expand-lg navbar-light bg-light p-0 m-3">
-				<div className="ml-5">
+			<nav className=" container navbar navbar-light mb-3 justify-content-between ">
+				<Link to="/" className="ml-3">
 					<img
-						className="img-responsive ml-5"
-						style={{ width: "100px" }}
-						src="https://www.freepnglogos.com/uploads/star-wars-logo-31.png"
+						width="130px"
+						src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1024px-Star_Wars_Logo.svg.png"
 					/>
-				</div>
+				</Link>
 				<div className="nav-item dropdown navbar-nav ml-auto">
 					<button
-						className="btn btn-outline-success dropdown-toggle mr-auto"
+						className="btn btn-outline-warning dropdown-toggle"
 						type="button"
 						id="dropdownMenuButton"
 						data-toggle="dropdown"
@@ -23,7 +22,7 @@ export const Navbar = () => {
 						Favorites
 					</button>
 					<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-						<a className="dropdown-item" href="#">
+						{/* <a className="dropdown-item" href="#">
 							Action
 						</a>
 						<a className="dropdown-item" href="#">
@@ -31,7 +30,7 @@ export const Navbar = () => {
 						</a>
 						<a className="dropdown-item" href="#">
 							Something else here
-						</a>
+						</a> */}
 					</div>
 				</div>
 			</nav>

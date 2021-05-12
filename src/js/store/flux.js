@@ -1,3 +1,5 @@
+import { element } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -15,21 +17,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			personajes: [],
 			planetas: [],
-			favoritos: []
+			info: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			// agregarFavoritos: () => {
-			// 	//
-			// 	setStore({ favoritos: newFavoritos });
-			// },
-			// eliminarFavoritos: () => {
-
-			//     setStore({ favoritos: newFavoritos });
-			// },
 
 			loadSomeData: () => {
 				fetch("https://www.swapi.tech/api/people/")
@@ -39,6 +33,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/planets/")
 					.then(res => res.json())
 					.then(data => setStore({ planetas: data.results }));
+			},
+
+			getPersonaje: id => {
+				fetch("https://www.swapi.tech/api/people/" + id)
+					.then(res => res.json())
+					.then(data => setStore({ info: data.result.properties }));
 			},
 
 			changeColor: (index, color) => {
@@ -51,9 +51,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				setFav: nuevoElemento => {
+					setStore({ fav: nuevoElemento });
+				},
+					//reset the global store
+					setStore({ demo: demo });
 			}
 		}
 	};
