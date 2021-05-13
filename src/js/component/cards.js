@@ -1,18 +1,30 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
 export const Cards = props => {
+	const {
+		store,
+		actions: { setFavoritos }
+	} = useContext(Context);
+
+	function addFavorito() {
+		const addNameFavoritos = props.data.name;
+		console.log(props.name);
+		setFavoritos(store.favoritos.concat(addNameFavoritos));
+	}
+
 	return (
 		<div>
-			<div className="card">
+			<div className="jumbotron jumbotron-fluid p-3 mb-2 bg-transparent border border-warning">
 				<img
 					src="https://culturawarsie.files.wordpress.com/2020/01/bytm20.jpg"
 					className="card-img-top"
 					alt="..."
 				/>
 				<div className="card-body">
-					<h4 className="card-title">{props.name}</h4>
+					<h4 className="card-title text-warning ">{props.name}</h4>
 					<p className="card-text" />
 					<div>
 						<Link to={"/detalle/" + props.id}>
@@ -20,7 +32,12 @@ export const Cards = props => {
 								Learn more!
 							</button>
 						</Link>
-						<button type="button" className="btn btn-outline-warning btn-lg float-right">
+						<button
+							type="button"
+							className="btn btn-outline-warning btn-lg float-right"
+							onClick={() => {
+								addFavorito();
+							}}>
 							<i className="fas fa-heart" />
 						</button>
 					</div>

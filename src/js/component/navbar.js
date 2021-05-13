@@ -21,17 +21,7 @@ export const Navbar = () => {
 						aria-expanded="false">
 						Favorites
 					</button>
-					<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-						{/* <a className="dropdown-item" href="#">
-							Action
-						</a>
-						<a className="dropdown-item" href="#">
-							Another action
-						</a>
-						<a className="dropdown-item" href="#">
-							Something else here
-						</a> */}
-					</div>
+					<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" />
 				</div>
 			</nav>
 		</div>

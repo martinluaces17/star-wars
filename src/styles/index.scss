@@ -1,7 +1,17 @@
 body{
-    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-image: url("https://wallpapercave.com/wp/oPRLSHe.png");
+}
+.carta{
+    background-color: transparent;
+}
+.imagen{
+    box-shadow: 2px 2px 5px yellow;
+    border-radius: 5%;
+}
+.datos{
+    margin-top: 30px;
+    border-top: yellow; ;
 }
