@@ -41,29 +41,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ info: data.result.properties }));
 			},
+			getPlanets: id => {
+				fetch("https://www.swapi.tech/api/planets/" + id)
+					.then(res => res.json())
+					.then(data => setStore({ info: data.result.properties }));
+			},
 
-			// getPersonaje: id => {
-			// 	fetch("https://www.swapi.tech/api/planets/" + id)
-			// 		.then(res => res.json())
-			// 		.then(data => setStore({ info: data.result.properties }));
-			// },
-
-			//Agregar favorito 0=personaje 1=planetas
-			// addFavorito: (tipoParam, idParam, name) => {
-			// 	const store = getStore(id);
-			// 	let objeto = {
-			// 		tipo: tipoParam,
-			// 		id: idParam,
-			// 		name: nombre
-			// 	};
-			// 	setStore({ favoritos: [...store.favoritos, objeto] });
-			// },
 			setFavoritos: (arr = []) => {
 				setStore({
 					favoritos: arr
 				});
 			},
-			//borrar favorito
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

@@ -10,7 +10,7 @@ export const Cards = props => {
 	} = useContext(Context);
 
 	function addFavorito() {
-		const addNameFavoritos = props.data.name;
+		const addNameFavoritos = props.name;
 		console.log(props.name);
 		setFavoritos(store.favoritos.concat(addNameFavoritos));
 	}
