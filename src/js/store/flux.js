@@ -1,5 +1,3 @@
-// import { element } from "prop-types";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -18,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			personajes: [],
 			planetas: [],
 			info: null,
-			favoritos: []
+			favoritos: [],
+			categoria: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -41,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ info: data.result.properties }));
 			},
-			getPlanets: id => {
+			getPlaneta: id => {
 				fetch("https://www.swapi.tech/api/planets/" + id)
 					.then(res => res.json())
 					.then(data => setStore({ info: data.result.properties }));
@@ -50,6 +49,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFavoritos: (arr = []) => {
 				setStore({
 					favoritos: arr
+				});
+			},
+			setCategoria: (cat = []) => {
+				setStore({
+					categoria: cat
 				});
 			},
 
